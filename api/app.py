@@ -2,6 +2,12 @@ from flask import Flask, jsonify
 app = Flask(__name__)
 
 
+@app.route("/api/1.0/health", methods=['GET'])
+def health():
+    info = {'Status': 'Product Service is running', 'Version': '1.0'}
+    return jsonify(info)
+
+
 @app.route("/api/1.0/products/", methods=['GET'])
 def get_products():
     products = [
